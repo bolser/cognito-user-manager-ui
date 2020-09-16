@@ -3,7 +3,7 @@ service: cognito-user-manager-ui
 provider:
   name: aws
   stage: ${opt:stage, 'dev'}
-  region: eu-central-1
+  region: eu-west-1
   environment:
     SERVICE_ENDPOINT:
       Fn::ImportValue: ${self:custom.backendAPI}:ServiceEndpoint
@@ -14,7 +14,7 @@ package:
 
 custom:
   backendAPI: cognito-user-manager-backend:${self:provider.stage}
-  appName: cognito-manager-v1
+  appName: am-cognito-manager-v1
   serviceEndpoint: SERVICE_ENDPOINT
   client:
     bucketName: ${self:custom.appName}-${self:provider.stage}-ui
